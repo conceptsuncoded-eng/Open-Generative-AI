@@ -36,3 +36,7 @@ out/
 .env
 .env.*
 !.env.example
+
+# Build toolchain + intermediates (not part of the repo)
+/.tools/
+/youtube-short/build/
