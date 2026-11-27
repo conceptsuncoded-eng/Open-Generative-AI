@@ -44,3 +44,6 @@ out/
 # Render output and upload cache (never commit clips or signed URLs)
 /the-last-10-minutes/clips/
 /the-last-10-minutes/.upload_cache.json
+/the-last-10-minutes/03_SEQUENCE_01/*_1080p.mp4
+/the-last-10-minutes/.build/
+__pycache__/

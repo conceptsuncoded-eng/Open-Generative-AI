@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#08090b">
+<title>The Last 10 Minutes — Sequence 01</title>
+<style>
+  :root{--ink:#eef2f6;--dim:#98a4b0;--lime:#c6f24e}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:#08090b;color:var(--ink);
+    font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:1000px;margin:0 auto;padding:14px}
+  .stage{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;
+    border:1px solid #1e242b;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  video{width:100%;height:100%;display:block;background:#000}
+  .tap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:10px;background:rgba(4,6,8,.55);cursor:pointer;transition:opacity .25s;text-align:center;padding:20px}
+  .tap.hide{opacity:0;pointer-events:none}
+  .tap b{font-size:16px;letter-spacing:.16em;text-transform:uppercase}
+  .tap span{font-size:12.5px;color:var(--dim);max-width:340px}
+  .play{width:58px;height:58px;border-radius:50%;background:var(--lime);display:grid;place-items:center}
+  .play:after{content:"";display:block;margin-left:4px;border-left:17px solid #08090b;
+    border-top:11px solid transparent;border-bottom:11px solid transparent}
+  h1{font-size:16px;margin:16px 0 2px;letter-spacing:.12em;text-transform:uppercase}
+  .meta{color:var(--dim);font-size:12.5px;margin-bottom:12px}
+  .bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  a.btn{font-size:13px;text-decoration:none;color:var(--ink);border:1px solid #262d35;
+    padding:9px 13px;border-radius:9px}
+  a.btn.pri{background:var(--lime);color:#08090b;border-color:var(--lime);font-weight:700}
+  .beat{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #171c22;font-size:13px}
+  .beat time{color:var(--lime);font-variant-numeric:tabular-nums;min-width:52px}
+  .beat p{margin:0;color:#c3ccd6}
+  .note{margin-top:16px;color:var(--dim);font-size:12px;line-height:1.6;border-top:1px solid #171c22;padding-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="stage">
+    <video id="v" playsinline preload="metadata" poster="03_SEQUENCE_01/poster.png"
+           src="03_SEQUENCE_01/SEQUENCE_01_open_60s_720p.mp4"></video>
+    <div class="tap" id="tap">
+      <div class="play"></div>
+      <b>Tap to play</b>
+      <span>Sequence 01 — the cold open. 60 seconds, with sound.</span>
+    </div>
+  </div>
+
+  <h1>The Last 10 Minutes</h1>
+  <div class="meta">Sequence 01 · 0:00–1:00 · 1080p · 24 fps · original score</div>
+  <div class="bar">
+    <a class="btn pri" href="03_SEQUENCE_01/SEQUENCE_01_open_60s_720p.mp4" download>Download 720p</a>
+    <a class="btn" href="03_SEQUENCE_01/SEQUENCE_01_open_60s_1080p.mp4" download>Download 1080p</a>
+    <a class="btn" href="console.html">Shot console</a>
+  </div>
+
+  <div class="beat"><time>0:00</time><p>Manhattan, rain. A black SUV waits below a glass tower.</p></div>
+  <div class="beat"><time>0:08</time><p>Ethan Cole. A phone lights his face. He has nine minutes.</p></div>
+  <div class="beat"><time>0:18</time><p>Daniel, restrained, in a concrete room. The clock reads 09:42.</p></div>
+  <div class="beat"><time>0:26</time><p>Ethan watches. He doesn't call anyone. He gets out of the car.</p></div>
+  <div class="beat"><time>0:41</time><p>The garage. Earpiece in. He walks toward the building.</p></div>
+  <div class="beat"><time>0:50</time><p>Back to Daniel — the clock still running.</p></div>
+
+  <div class="note">
+    Previs cut: photoreal key frames with camera moves, score and countdown —
+    built entirely in this workspace. The live-action plates come from the shot
+    console (<a href="console.html" style="color:#c6f24e">console.html</a>),
+    which needs a MuAPI key in your browser.
+  </div>
+</div>
+<script>
+  const v = document.getElementById('v'), tap = document.getElementById('tap');
+  tap.addEventListener('click', async () => {
+    tap.classList.add('hide');
+    v.muted = false;
+    try { await v.play(); } catch (e) { v.muted = true; await v.play(); }
+  });
+  // if the browser blocks autoplay-with-sound on first load, play muted under the tap layer
+  v.addEventListener('loadedmetadata', () => { v.muted = true; v.play().catch(()=>{}); });
+  v.addEventListener('error', () => {
+    tap.innerHTML = '<b>Playback failed</b><span>Open the 720p file directly from the Download button below.</span>';
+    tap.classList.remove('hide');
+  });
+</script>
+</body>
+</html>

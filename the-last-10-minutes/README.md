@@ -7,7 +7,31 @@ A 10-minute AI-generated spy thriller, planned against the model catalogue that
 ```
 shots.csv                  31 shot groups, 600s, 82 planned clips, model assigned per shot
 01_CHARACTER_REFERENCES/   four-view casting sheets for Ethan, Victor, Maya, Daniel
+02_KEYFRAMES/              photoreal key frames for the cold open, built from the sheets
+03_SEQUENCE_01/            the rendered 60s cold open — master, 720p web copy, poster
+watch.html                 full-screen player for Sequence 01
+console.html               per-shot renderer (runs in your browser, needs a MuAPI key)
 ```
+
+## The cold open is rendered
+
+`03_SEQUENCE_01/SEQUENCE_01_open_60s_720p.mp4` — 60.0s, 1920x1080 master / 1280x720 web
+copy, 24fps, H.264 + AAC, square pixels, `+faststart`. Seven moves cut hard, an
+opening title, a running countdown from 9:52 that lands on **09:42** as Daniel appears,
+and an original synthesized score (rain bed, low drone, accelerating clock ticks,
+heartbeat under the Ethan close-ups, riser into the garage, booms on the two reveals).
+
+Watch it: `python3 serve.py` then `http://localhost:8100/watch.html`.
+
+Rebuild the whole thing from the key frames:
+
+```bash
+python3 build_sequence01.py     # ~2 min on 2 cores
+```
+
+It is a **previs cut**, not live-action plates: the frames are photoreal stills moved
+by camera, which is enough to lock the look, the blocking, the tempo and the clock.
+Photoreal motion comes from the shot console.
 
 ## 1. The production stack (this is the decision that matters)
 

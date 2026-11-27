@@ -48,7 +48,36 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         if self._is_api():
             return self._proxy("GET")
-        return super().do_GET()
+        rng = self.headers.get("Range")
+        if not rng or not rng.startswith("bytes="):
+            return super().do_GET()
+        # byte-range playback so browsers can seek in the film
+        path = self.translate_path(self.path)
+        if not os.path.isfile(path):
+            return self.send_error(404)
+        size = os.path.getsize(path)
+        try:
+            spec = rng.split("=", 1)[1].split(",")[0].strip()
+            a, _, b = spec.partition("-")
+            start = int(a) if a else 0
+            end = int(b) if b else size - 1
+        except ValueError:
+            return self.send_error(400)
+        end = min(end, size - 1)
+        if start > end:
+            self.send_response(416)
+            self.send_header("Content-Range", f"bytes */{size}")
+            self.end_headers()
+            return
+        with open(path, "rb") as f:
+            f.seek(start)
+            data = f.read(end - start + 1)
+        self.send_response(206)
+        self.send_header("Content-Type", self.guess_type(path))
+        self.send_header("Content-Range", f"bytes {start}-{end}/{size}")
+        self.send_header("Content-Length", str(len(data)))
+        self.end_headers()
+        self.wfile.write(data)
 
     def do_POST(self):
         if self._is_api():
