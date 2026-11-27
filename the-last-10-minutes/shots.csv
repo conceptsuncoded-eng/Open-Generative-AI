@@ -1,0 +1,32 @@
+shot,sequence,start,end,seconds,shot_type,action,primary_model,reference_images,planned_clips,avg_clip_seconds,audio,lip_sync,status
+S01,Seq 1,00:00,00:08,8,establishing,Aerial push-in over rain-soaked Manhattan; black SUV at a glass tower,veo-4-text-to-video,none,1,8.0,"rain, sirens, low bass",,todo
+S02,Seq 1,00:08,00:18,10,close-up,"Ethan in the parked SUV, phone lights up with an unknown video",minimax-h3-reference-to-video,ETHAN,2,5.0,"phone buzz, rain on glass; Ethan VO",,todo
+S03,Seq 1,00:18,00:35,17,insert + CU,"Hostage room: Daniel tied, countdown 09:42; cut to Ethan watching",minimax-h3-reference-to-video,"DANIEL, ETHAN",3,5.7,Daniel/Victor/Ethan dialogue,sync-lipsync,todo
+S04,Seq 1,00:35,01:00,25,MCU,"Ethan's eyes, then leaves SUV, takes earpiece, enters garage",minimax-h3-reference-to-video,ETHAN,3,8.3,pulsing clock motif; Maya VO,,todo
+S05,Seq 2,01:00,01:15,15,low tracking,"Shoes through the parking garage, security booth glowing",seedance-2.5-omni-reference-1080p,ETHAN,2,7.5,"footsteps, fan rattle; Maya VO",,todo
+S06,Seq 2,01:15,01:35,20,OTS,Ethan studies the corridor in the terminal glass; guard passes,minimax-h3-reference-to-video,ETHAN,3,6.7,"keys, radio static, whispers",,todo
+S07,Seq 2,01:35,02:00,25,tight CU,Service door closes; monitor still shows his frozen image,wan3.0-image-to-video,ETHAN,3,8.3,"lock clunk, alarm; dialogue",sync-lipsync,todo
+S08,Seq 3,02:00,02:15,15,wide,Ethan exits a service tunnel into rain; two sedans pull out,seedance-2.5-omni-reference-1080p,ETHAN,2,7.5,"engines, water spray; Maya VO",,todo
+S09,Seq 3,02:15,02:35,20,dashboard + tracking,"Ethan into traffic, pursuers weave, taxi cuts in",seedance-2.5-omni-reference-1080p,ETHAN,3,6.7,"horns, wet tires, percussion",,todo
+S10,Seq 3,02:35,03:00,25,fast intercut,Hard turn into a parking structure; silhouette in the back seat,minimax-h3-reference-to-video,ETHAN,3,8.3,"tire squeal, music cuts",,todo
+S11,Seq 4,03:00,03:12,12,static wide,"Masked operative behind Ethan, weapon held low",minimax-h3-reference-to-video,ETHAN,2,6.0,"rain, leather creak; 'Pull over'",,todo
+S12,Seq 4,03:12,03:35,23,handheld CU,"Confined struggle in the vehicle, readable, no graphic injuries",seedance-2.5-omni-reference-1080p,ETHAN,3,7.7,"fabric, dull impacts, breathing",,todo
+S13,Seq 4,03:35,04:00,25,medium exterior,"Attacker forced out, drops a federal badge: Victor Hale",minimax-h3-reference-to-video,ETHAN,3,8.3,"thud, car alarm; badge reveal",,todo
+S14,Seq 5,04:00,04:15,15,symmetrical wide,Elevator opens onto a silent archive of glass and servers,wan3.0-image-to-video,ETHAN,2,7.5,"elevator chime, electrical hum",,todo
+S15,Seq 5,04:15,04:35,20,slow dolly,"Desks pass; screens wake one by one, each showing Ethan",seedance-2.5-omni-reference-1080p,ETHAN,3,6.7,"sequential beeps, building score",,todo
+S16,Seq 5,04:35,05:00,25,push-in,Drive found in evidence case; Victor over loudspeaker,minimax-h3-reference-to-video,ETHAN,3,8.3,"low rumble, heartbeat percussion",,todo
+S17,Seq 6,05:00,05:15,15,"medium, orbit",Control room: Victor waits beside a bank of monitors,minimax-h3-reference-to-video,"VICTOR, ETHAN",2,7.5,sustained quiet note; dialogue,sync-lipsync,todo
+S18,Seq 6,05:15,05:35,20,alternating CU,Victor points to a map and classified files,minimax-h3-reference-to-video,"VICTOR, ETHAN",3,6.7,dialogue; hold on Ethan's face,sync-lipsync,todo
+S19,Seq 6,05:35,06:00,25,CU + rack focus,"Reveal: the drive is a decoy, evidence transmitting elsewhere",minimax-h3-reference-to-video,"VICTOR, ETHAN",3,8.3,dialogue; new countdown 3:00,sync-lipsync,todo
+S20,Seq 7,06:00,06:15,15,split screen,Maya types; ACCESS DENIED on her screen,seedance-2.5-omni-reference-1080p,"MAYA, ETHAN",2,7.5,"keyboard, warning beeps",,todo
+S21,Seq 7,06:15,06:35,20,slow push,Maya lowers her eyes and admits she knew,minimax-h3-reference-to-video,"MAYA, ETHAN",3,6.7,restrained suspense score,,todo
+S22,Seq 7,06:35,07:00,25,CU,Ethan removes his earpiece; studies the evacuation map,minimax-h3-reference-to-video,"ETHAN, MAYA",3,8.3,"earpiece crackle, silence",,todo
+S23,Seq 8,07:00,07:15,15,tracking,"Restricted corridor; emergency lights, doors locking",seedance-2.5-omni-reference-1080p,ETHAN,2,7.5,"alarms, boots, rising strings",,todo
+S24,Seq 8,07:15,07:35,20,wide,Two operatives converge; Ethan evades into a service room,seedance-2.5-omni-reference-1080p,ETHAN,3,6.7,"door impacts, radio chatter",,todo
+S25,Seq 8,07:35,08:00,25,OTS + two-shot,Holding room: Daniel alive; restraints cut; 'I didn't call you',minimax-h3-reference-to-video,"ETHAN, DANIEL",3,8.3,quiet musical swell; dialogue,sync-lipsync,todo
+S26,Seq 9,08:00,08:15,15,wide,Control room standoff; Victor holds up a tablet,minimax-h3-reference-to-video,"VICTOR, ETHAN, DANIEL",2,7.5,low bass pulse; dialogue,sync-lipsync,todo
+S27,Seq 9,08:15,08:35,20,lateral + CU,Victor circles; reveals he leaked the evidence himself,minimax-h3-reference-to-video,"VICTOR, ETHAN, DANIEL",3,6.7,dialogue; hands and faces,sync-lipsync,todo
+S28,Seq 9,08:35,09:00,25,handheld,Struggle; Daniel triggers the upload; doors unlock,seedance-2.5-omni-reference-1080p,"ETHAN, VICTOR, DANIEL",3,8.3,"impacts, glass, rising alarm",,todo
+S29,Seq 10,09:00,09:20,20,wide exterior,Dawn; police arrive; Victor escorted out separately,veo-4-text-to-video,none,3,6.7,sirens fading to city ambience,,todo
+S30,Seq 10,09:20,09:40,20,two-shot,Brothers on the pavement; a notification arrives,minimax-h3-reference-to-video,"ETHAN, DANIEL",3,6.7,one phone vibration; dialogue,sync-lipsync,todo
+S31,Seq 10,09:40,10:00,20,extreme CU,Ethan reads the message; Daniel steps away into the crowd,minimax-h3-reference-to-video,"ETHAN, DANIEL",3,6.7,score stops; low pulse,,todo
