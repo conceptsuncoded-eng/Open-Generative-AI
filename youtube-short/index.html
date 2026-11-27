@@ -44,6 +44,9 @@
   .sheet img { width:100%; border-radius:16px; border:1px solid #1e222a; display:block; }
   footer { color:#6f7681; font-size:12px; margin-top:44px; line-height:1.7; }
   .hint { color:var(--lime); font-size:13px; margin-top:12px; }
+  .warn { background:#2a1d05; border:1px solid #6b4b09; color:#ffd98a; font-size:13px;
+          padding:10px 14px; line-height:1.6; }
+  .warn a { color:var(--lime); }
 </style>
 </head>
 <body>
@@ -56,8 +59,15 @@
 
   <div class="hero">
     <div class="player">
-      <video src="open-generative-ai-short.mp4" poster="cover.png"
-             controls autoplay muted loop playsinline preload="metadata"></video>
+      <video id="player" poster="cover.png" controls autoplay muted loop playsinline preload="auto">
+        <source src="preview-720p.mp4" type="video/mp4" />
+        <source src="open-generative-ai-short.mp4" type="video/mp4" />
+      </video>
+      <div id="warn" class="warn" hidden>
+        Playback is blocked in this view.
+        <a href="preview-720p.mp4" target="_blank" rel="noopener">Open the video in a new tab</a>
+        or <a href="open-generative-ai-short.mp4" download>download it</a>.
+      </div>
     </div>
 
     <div class="side">
@@ -91,5 +101,18 @@
     (Pillow + NumPy + ffmpeg). Music is synthesised from scratch — no samples, no licensing issues.
   </footer>
 </div>
+<script>
+  var v = document.getElementById('player');
+  var warn = document.getElementById('warn');
+  function fail() { warn.hidden = false; }
+  v.addEventListener('error', fail);
+  v.addEventListener('stalled', function () { setTimeout(function () {
+    if (v.readyState === 0) fail();
+  }, 6000); });
+  // autoplay is usually allowed while muted, but never leave a dead player
+  var p = v.play();
+  if (p && p.catch) p.catch(function () {});
+  setTimeout(function () { if (v.readyState === 0) fail(); }, 7000);
+</script>
 </body>
 </html>
