@@ -81,7 +81,30 @@ duplicated limbs, changing wardrobe, teleporting objects, graphic injury.
 FORMAT: 16:9, 1080p or 2K, 24 fps target feel, <duration> seconds.
 ```
 
-## 5. Rendering the shots
+## 5. The shot console (browser renderer)
+
+`console.html` renders the film from your own browser — the sandbox that built this
+package cannot reach `api.muapi.ai` (its egress filter drops the TLS handshake), but
+your browser can, and `src/lib/muapi.js` proves the API accepts browser calls.
+
+```bash
+cd the-last-10-minutes
+python3 serve.py                 # http://localhost:8100/console.html
+```
+
+Paste your key at the top (it stays in that browser's localStorage), then press
+**Generate** on any shot, or **Render Sequence 1** to do the opening minute in order.
+Reference sheets upload themselves, prompts are pre-loaded, finished clips play inline
+and are remembered on reload.
+
+`serve.py` proxies `/api/v1/*` same-origin, so there is no CORS to fight. Regenerate
+the page after editing `shots.csv` or `prompts/`:
+
+```bash
+python3 make_console.py
+```
+
+## 6. Rendering from the command line
 
 Two ways, both need a machine that can reach `api.muapi.ai` (this sandbox cannot —
 its egress is allowlisted, so renders must run on your own machine or the studio).
@@ -103,7 +126,7 @@ Prompts for all 31 shots are in `prompts/` (readable version: `prompts/ALL_PROMP
 **Studio UI:** start the app, paste the key in Settings, Video tab → image-to-video →
 model from §1 → reference slot → paste the prompt from `prompts/S<nn>.txt`.
 
-## 6. How to run the studio
+## 7. How to run the studio
 
 ```bash
 npm install          # first time
@@ -122,7 +145,7 @@ S01_SH03_ETHAN_REACTION_01.mp4
              ^ shot   ^ clip number
 ```
 
-## 7. What is done, and what is not
+## 8. What is done, and what is not
 
 **Done, in this workspace:** the four casting sheets, the 31-shot plan with a model and
 clip count for every shot, and the stack decision above.
@@ -133,14 +156,14 @@ control host. Run `generate.py` on your own machine. The casting sheets were pro
 with a separate image model, not by the app, so they are drop-in references rather than
 proof that the pipeline renders.
 
-## 8. Cost control
+## 9. Cost control
 
 - Render **one 5s shot** of Ethan (S02) before anything else. If his face drifts, the
   whole film does, and you want to learn that for the price of one clip.
 - Render the opening 60 seconds end-to-end next. Four shots, ~10 clips.
 - Only then commit to the remaining 72.
 
-## 9. QC before export
+## 10. QC before export
 
 - [ ] Four characters hold identity and wardrobe across all 82 clips
 - [ ] Countdown reads 09:42 → 03:00 → 00:00 in the right order, screen-visible
