@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<title>Open Generative AI — Short</title>
+<style>
+  * { box-sizing:border-box; }
+  html, body { height:100%; margin:0; background:#000; overflow:hidden; }
+  body { display:flex; align-items:center; justify-content:center;
+         font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  video { width:100%; height:100%; object-fit:contain; background:#000; }
+  .hint {
+    position:fixed; left:50%; bottom:max(28px, env(safe-area-inset-bottom));
+    transform:translateX(-50%); display:flex; gap:10px; align-items:center;
+    background:rgba(12,13,16,.82); backdrop-filter:blur(10px);
+    border:1px solid rgba(207,255,61,.45); border-radius:999px;
+    padding:11px 20px; color:#eef1f5; font-size:14px; font-weight:600;
+    letter-spacing:.02em; transition:opacity .4s; z-index:5;
+  }
+  .hint b { color:#cfff3d; }
+  .hint.hide { opacity:0; pointer-events:none; }
+  .fallback {
+    display:none; position:fixed; inset:auto 20px 90px; padding:16px 18px;
+    background:#22180a; border:1px solid #6b4b09; border-radius:14px;
+    color:#ffd98a; font-size:14px; line-height:1.6; z-index:6;
+  }
+  .fallback a { color:#cfff3d; font-weight:700; }
+  .fallback.on { display:block; }
+</style>
+</head>
+<body>
+<video id="v" poster="cover.png" controls autoplay muted loop playsinline preload="auto">
+  <source src="preview-720p.mp4" type="video/mp4" />
+  <source src="open-generative-ai-short.mp4" type="video/mp4" />
+</video>
+
+<div class="hint" id="hint"><b>Tap</b> for sound</div>
+
+<div class="fallback" id="fb">
+  This browser won't play the video inline.
+  <a href="open-generative-ai-short.mp4">Open the MP4 directly</a> —
+  it will play full screen.
+</div>
+
+<script>
+  var v = document.getElementById('v');
+  var hint = document.getElementById('hint');
+  var fb = document.getElementById('fb');
+
+  function unmute() {
+    v.muted = false;
+    v.volume = 1;
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+    hint.classList.add('hide');
+  }
+  hint.addEventListener('click', unmute);
+  v.addEventListener('click', function () { if (v.muted) unmute(); });
+
+  v.addEventListener('error', function () { fb.classList.add('on'); });
+  var p = v.play();
+  if (p && p.catch) p.catch(function () {});
+  setTimeout(function () { if (v.readyState === 0) fb.classList.add('on'); }, 7000);
+  setTimeout(function () { hint.classList.add('hide'); }, 9000);
+</script>
+</body>
+</html>

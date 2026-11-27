@@ -1,0 +1,16 @@
+PROJECT: THE LAST 10 MINUTES
+Photorealistic live-action shot from an original American espionage thriller.
+
+CAST: no people in frame — environment, vehicles and rain only. Any incidental crowd stays background and out of focus.
+
+SCENE: Aerial push-in over rain-soaked Manhattan; black SUV at a glass tower
+LOCATION: Manhattan, rainy night, wet reflective surfaces, practical city lighting.
+CAMERA: high aerial, slow forward push, 24mm
+MOTION: drift down toward the tower, SUV enters frame at the end
+PERFORMANCE: natural body mechanics, realistic eye line, restrained facial expression,
+believable breathing. Controlled, not theatrical.
+LIGHT: cool blue night key, restrained amber practicals, deep but readable shadows.
+CONTINUITY: keep the geography of the location and the number of people in frame.
+NO: subtitles, captions, watermarks, logos, invented text, face morphing, extra people,
+duplicated limbs, changing wardrobe, teleporting objects, graphic injury.
+FORMAT: 16:9, 1080p, <duration> seconds.
