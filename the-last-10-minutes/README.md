@@ -81,7 +81,29 @@ duplicated limbs, changing wardrobe, teleporting objects, graphic injury.
 FORMAT: 16:9, 1080p or 2K, 24 fps target feel, <duration> seconds.
 ```
 
-## 5. How to run it in this repo
+## 5. Rendering the shots
+
+Two ways, both need a machine that can reach `api.muapi.ai` (this sandbox cannot —
+its egress is allowlisted, so renders must run on your own machine or the studio).
+
+**CLI (recommended for 82 clips):**
+
+```bash
+export MUAPI_API_KEY=...          # never committed; read from env only
+cd the-last-10-minutes
+python3 generate.py --shot S02 --dry-run    # inspect payload, sends nothing
+python3 generate.py --shot S02              # render the 5s face test
+python3 generate.py --sequence 1            # four shots of the opening minute
+```
+
+Clips land in `clips/S02_minimax-h3-reference-to-video_01.mp4` with a
+`manifest.json`. Reference sheets are uploaded once and cached by content hash.
+Prompts for all 31 shots are in `prompts/` (readable version: `prompts/ALL_PROMPTS.md`).
+
+**Studio UI:** start the app, paste the key in Settings, Video tab → image-to-video →
+model from §1 → reference slot → paste the prompt from `prompts/S<nn>.txt`.
+
+## 6. How to run the studio
 
 ```bash
 npm install          # first time
@@ -100,23 +122,25 @@ S01_SH03_ETHAN_REACTION_01.mp4
              ^ shot   ^ clip number
 ```
 
-## 6. What is done, and what is not
+## 7. What is done, and what is not
 
 **Done, in this workspace:** the four casting sheets, the 31-shot plan with a model and
 clip count for every shot, and the stack decision above.
 
-**Not done:** the video itself. This environment has no `MUAPI_API_KEY`, so nothing can
-be rendered through the studio. The casting sheets were produced with a separate image
-model, not by the app — they are drop-in references, not proof the pipeline renders.
+**Not done:** the video itself. This sandbox's outbound network blocks `api.muapi.ai`
+(DNS resolves, TCP is refused), so no key can render here — verified against a working
+control host. Run `generate.py` on your own machine. The casting sheets were produced
+with a separate image model, not by the app, so they are drop-in references rather than
+proof that the pipeline renders.
 
-## 7. Cost control
+## 8. Cost control
 
 - Render **one 5s shot** of Ethan (S02) before anything else. If his face drifts, the
   whole film does, and you want to learn that for the price of one clip.
 - Render the opening 60 seconds end-to-end next. Four shots, ~10 clips.
 - Only then commit to the remaining 72.
 
-## 8. QC before export
+## 9. QC before export
 
 - [ ] Four characters hold identity and wardrobe across all 82 clips
 - [ ] Countdown reads 09:42 → 03:00 → 00:00 in the right order, screen-visible

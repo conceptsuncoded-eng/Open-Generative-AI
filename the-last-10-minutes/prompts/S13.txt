@@ -1,0 +1,17 @@
+PROJECT: THE LAST 10 MINUTES
+Photorealistic live-action shot from an original American espionage thriller.
+
+CAST: the person in the attached reference images is ETHAN. Preserve their exact face,
+hair, age, build and clothing from those references. Do not restyle them.
+
+SCENE: Attacker forced out, drops a federal badge: Victor Hale
+LOCATION: Manhattan, rainy night, wet reflective surfaces, practical city lighting.
+CAMERA: medium from outside through rain-streaked glass
+MOTION: attacker exits the door; a badge falls onto the wet asphalt
+PERFORMANCE: natural body mechanics, realistic eye line, restrained facial expression,
+believable breathing. Controlled, not theatrical.
+LIGHT: cool blue night key, restrained amber practicals, deep but readable shadows.
+CONTINUITY: keep the geography of the location and the number of people in frame.
+NO: subtitles, captions, watermarks, logos, invented text, face morphing, extra people,
+duplicated limbs, changing wardrobe, teleporting objects, graphic injury.
+FORMAT: 16:9, 1080p, <duration> seconds.

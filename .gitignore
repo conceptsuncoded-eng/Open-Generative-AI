@@ -40,3 +40,7 @@ out/
 # Build toolchain + intermediates (not part of the repo)
 /.tools/
 /youtube-short/build/
+
+# Render output and upload cache (never commit clips or signed URLs)
+/the-last-10-minutes/clips/
+/the-last-10-minutes/.upload_cache.json
