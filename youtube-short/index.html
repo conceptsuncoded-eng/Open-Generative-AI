@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Open Generative AI — YouTube Short</title>
+<style>
+  :root { --lime:#cfff3d; --ink:#08090b; --panel:#121418; --muted:#9aa1ac; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:radial-gradient(120% 80% at 80% -10%, #1b2410 0%, var(--ink) 55%);
+    color:#f2f4f7; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    padding:40px 20px 80px;
+  }
+  .wrap { max-width:1080px; margin:0 auto; }
+  .kicker { color:var(--lime); font-size:12px; letter-spacing:.28em; font-weight:700; }
+  h1 { font-size:clamp(26px,4vw,42px); line-height:1.1; margin:12px 0 10px; letter-spacing:-.02em; }
+  h1 span { color:var(--lime); }
+  .meta { color:var(--muted); font-size:14px; }
+  .meta b { color:#dfe4ea; font-weight:600; }
+  .hero { display:flex; gap:36px; align-items:flex-start; margin-top:34px; flex-wrap:wrap; }
+  .player {
+    flex:0 0 auto; border-radius:22px; overflow:hidden; background:#000;
+    box-shadow:0 30px 80px rgba(0,0,0,.65), 0 0 0 1px rgba(207,255,61,.35);
+  }
+  video { display:block; width:340px; max-width:80vw; height:auto; aspect-ratio:9/16; background:#000; }
+  .side { flex:1 1 320px; min-width:280px; }
+  .side h2 { font-size:15px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin:0 0 14px; }
+  ol.timeline { list-style:none; padding:0; margin:0 0 26px; }
+  ol.timeline li { display:flex; gap:14px; padding:11px 0; border-bottom:1px solid #1e222a; font-size:14px; }
+  ol.timeline li b { color:var(--lime); font-variant-numeric:tabular-nums; flex:0 0 66px; }
+  ol.timeline li span { color:#c9d0d9; }
+  .btns { display:flex; gap:10px; flex-wrap:wrap; }
+  a.btn {
+    display:inline-block; text-decoration:none; font-weight:700; font-size:14px;
+    padding:12px 20px; border-radius:999px; border:1px solid #2a2f38; color:#eef1f5;
+    transition:.15s;
+  }
+  a.btn:hover { border-color:var(--lime); color:var(--lime); }
+  a.btn.primary { background:var(--lime); color:#08090b; border-color:var(--lime); }
+  a.btn.primary:hover { filter:brightness(1.08); color:#08090b; }
+  .sheet { margin-top:56px; }
+  .sheet h2 { font-size:15px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin:0 0 14px; }
+  .sheet img { width:100%; border-radius:16px; border:1px solid #1e222a; display:block; }
+  footer { color:#6f7681; font-size:12px; margin-top:44px; line-height:1.7; }
+  .hint { color:var(--lime); font-size:13px; margin-top:12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">OPEN GENERATIVE AI</div>
+  <h1>200+ AI models.<br /><span>One free studio.</span></h1>
+  <div class="meta">
+    27s · <b>1080×1920</b> · 30 fps · H.264 + AAC · <b>−14.2 LUFS</b> · ready to upload as a YouTube Short
+  </div>
+
+  <div class="hero">
+    <div class="player">
+      <video src="open-generative-ai-short.mp4" poster="cover.png"
+             controls autoplay muted loop playsinline preload="metadata"></video>
+    </div>
+
+    <div class="side">
+      <div class="hint">Tap the player to unmute — the soundtrack is an original synth track.</div>
+      <h2>Structure</h2>
+      <ol class="timeline">
+        <li><b>0:00</b><span>Hook — “200+ AI models, one free studio” over a blurred lime sculpture</span></li>
+        <li><b>0:03</b><span>Real studio UI: pick a model → write a prompt → hit generate</span></li>
+        <li><b>0:08</b><span>The generated image appears in the app</span></li>
+        <li><b>0:12</b><span>Showcase: cinematic portrait → anime illustration → 3D product design</span></li>
+        <li><b>0:21</b><span>End card — repo link, free &amp; open source, link in description</span></li>
+      </ol>
+      <h2>Files</h2>
+      <div class="btns">
+        <a class="btn primary" href="open-generative-ai-short.mp4" download>Download master · 11 MB</a>
+        <a class="btn" href="preview-720p.mp4" download>720p · 1.6 MB</a>
+        <a class="btn" href="cover.png" download>Cover PNG</a>
+        <a class="btn" href="storyboard.png" target="_blank">Storyboard</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <h2>Storyboard — one frame every ~2.2s</h2>
+    <img src="storyboard.png" alt="Storyboard of the 27 second Short" />
+  </div>
+
+  <footer>
+    Built from this repo: demo footage comes from <code>docs/assets/demo.mp4</code>;
+    artwork, captions, end card and the 100 BPM soundtrack were generated locally
+    (Pillow + NumPy + ffmpeg). Music is synthesised from scratch — no samples, no licensing issues.
+  </footer>
+</div>
+</body>
+</html>
